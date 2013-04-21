@@ -2,4 +2,8 @@
 
 class MadTemplate
 
+  def render template, &block
+    'word'
+  end
+
 end
