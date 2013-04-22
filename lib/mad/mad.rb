@@ -4,8 +4,9 @@ require 'erb'
 
 class MadTemplate
 
-  def initialize
+  def initialize options={}
     @mad_variables = Hash.new
+    @seperator = ':'
   end
 
   def render template, local={}
@@ -24,7 +25,8 @@ class MadTemplate
   end
 
   def binding_variable word
-    @mad_variables[word]
+    words = word.split(@seperator)
+    @mad_variables[words[0]] if words.size > 0
   end
 
 end

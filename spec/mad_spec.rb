@@ -28,4 +28,12 @@ describe MadTemplate do
     expect(result).to eq('duplex_words')
   end
 
+  it "should render groups of word seperated by colon" do
+    result = @mad.render '((word:duplex words)) ((word)) ((duplex words))', {
+      'duplex words' => 'duplex_words',
+      'word' => 'word'
+    }
+    expect(result).to eq('word word duplex_words')
+  end
+
 end
